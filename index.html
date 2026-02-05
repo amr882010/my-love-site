@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>موقع الحب ❤️</title>
+  <style>
+    /* ستايل الجسم والخلفية */
+    body {
+      background-color: #B22222; /* أحمر غامق */
+      color: white;
+      text-align: center;
+      font-family: Cairo, Arial, sans-serif;
+      padding-top: 50px;
+      overflow: hidden; /* عشان القلوب تتحرك برا الشاشة بدون scroll */
+      position: relative;
+      height: 100vh;
+    }
+
+    /* العنوان */
+    h1 {
+      font-size: 50px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* الفقرة */
+    p {
+      font-size: 25px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* زرار البداية */
+    button {
+      font-size: 25px;
+      padding: 10px 20px;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+      background-color: white;
+      color: #B22222;
+      margin-bottom: 20px;
+    }
+
+    /* القلوب المتحركة */
+    @keyframes fall {
+      to { top: 100vh; }
+    }
+
+    .heart {
+      position: absolute;
+      animation: fall 5s linear forwards;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- زرار البداية -->
+  <button onclick="window.location.href='password.html'">ابدأ</button>
+
+  <!-- العنوان والفقرة -->
+  <h1>بحبك ❤️</h1>
+  <p>ده أول موقع أعمله بإيدي</p>
+
+  <!-- القلوب -->
+  <script>
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.innerText = '❤️';
+      heart.classList.add('heart');
+      heart.style.left = Math.random() * window.innerWidth + 'px';
+      heart.style.top = '-50px';
+      heart.style.fontSize = Math.random() * 30 + 20 + 'px';
+      document.body.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 5000);
+    }
+
+    setInterval(createHeart, 500);
+  </script>
+
+</body>
+</html>
